@@ -10,9 +10,7 @@ import (
 
 func TestGetSuccess(t *testing.T) {
 	req, err := http.NewRequest("GET", "/.netlify/functions/testfunc2", nil)
-	if err != nil {
-		t.Fatal(err)
-	}
+	assert.NoError(t, err)
 
 	rr := httptest.NewRecorder()
 	handler := http.HandlerFunc(lambdaHandler)
