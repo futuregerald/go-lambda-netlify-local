@@ -1,7 +1,7 @@
 [build]
     functions="functions/"
     publish="ui/"
-    command="mkdir functions && go build -o ./functions/testfunc1 ./src/functions/testfunc1/testfunc1.go && go build -o ./functions/testfunc2 ./src/functions/testfunc2/testfunc2.go"
+    command="go test ./... -v && mkdir functions && go build -o ./functions/testfunc1 ./src/functions/testfunc1/testfunc1.go && go build -o ./functions/testfunc2 ./src/functions/testfunc2/testfunc2.go"
 
 [build.environment]
     GO_VERSION="1.16"
