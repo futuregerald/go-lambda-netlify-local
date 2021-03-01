@@ -8,7 +8,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestSomething(t *testing.T) {
+func TestFunctionFailsLocally(t *testing.T) {
 	req, err := http.NewRequest("GET", "/.netlify/functions/testfunc1", nil)
 	assert.NoError(t, err)
 	rr := httptest.NewRecorder()
@@ -16,6 +16,6 @@ func TestSomething(t *testing.T) {
 
 	handler.ServeHTTP(rr, req)
 
-	assert.Equal(t, http.StatusOK, rr.Code)
+	assert.Equal(t, http.StatusUnprocessableEntity, rr.Code)
 
 }

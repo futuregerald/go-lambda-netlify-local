@@ -8,7 +8,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestSomething(t *testing.T) {
+func TestHandlerSuccess(t *testing.T) {
 	req, err := http.NewRequest("GET", "/.netlify/functions/testfunc1", nil)
 	assert.NoError(t, err)
 	rr := httptest.NewRecorder()
