@@ -8,16 +8,14 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestHandlerSuccess(t *testing.T) {
+func TestFunctionFailsLocally(t *testing.T) {
 	req, err := http.NewRequest("GET", "/.netlify/functions/testfunc1", nil)
 	assert.NoError(t, err)
 	rr := httptest.NewRecorder()
-	handler := http.HandlerFunc(helloFunc)
+	handler := http.HandlerFunc(lambdaHandler)
 
 	handler.ServeHTTP(rr, req)
 
-	assert.Equal(t, http.StatusOK, rr.Code)
+	assert.Equal(t, http.StatusInternalServerError, rr.Code)
 
-	expected := "This is go1"
-	assert.Equal(t, expected, rr.Body.String())
 }
