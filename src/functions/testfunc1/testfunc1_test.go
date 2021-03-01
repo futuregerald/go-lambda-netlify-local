@@ -21,6 +21,6 @@ func TestSomething(t *testing.T) {
 
 	assert.Equal(t, http.StatusOK, rr.Code)
 
-	expected := "This is go1!"
+	expected := "This is go1"
 	assert.Equal(t, expected, rr.Body.String())
 }
