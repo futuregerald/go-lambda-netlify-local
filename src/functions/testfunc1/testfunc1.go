@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	http.HandleFunc("/", hello)
+	http.HandleFunc("/", helloFunc)
 	if os.Getenv("AWS_LAMBDA_FUNCTION_NAME") == "" {
 		log.Fatal(http.ListenAndServe(":3000", nil))
 	} else {
@@ -17,6 +17,6 @@ func main() {
 	}
 }
 
-func hello(w http.ResponseWriter, r *http.Request) {
+func helloFunc(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte("This is go1"))
 }
