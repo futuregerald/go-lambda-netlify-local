@@ -16,6 +16,6 @@ func TestFunctionFailsLocally(t *testing.T) {
 
 	handler.ServeHTTP(rr, req)
 
-	assert.Equal(t, http.StatusUnprocessableEntity, rr.Code)
+	assert.Equal(t, http.StatusInternalServerError, rr.Code)
 
 }
