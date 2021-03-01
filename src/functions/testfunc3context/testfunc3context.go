@@ -76,6 +76,5 @@ func lambdaHandler(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusUnprocessableEntity)
 		return
 	}
-	w.Write([]byte("This is go1"))
 	fmt.Fprintf(w, "Hello there! Your site is %s", decodedNetlifyInfo.SiteURL)
 }
